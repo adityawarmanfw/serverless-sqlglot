@@ -1,5 +1,13 @@
 # SQLGLot + Vercel
 
-Parse SQL to AST using SQLGLot.
+Parse SQL using SQLGLot.
 
-Usage: `?sql=SELECT 123 AS number, 'abc' AS text;`
+## Endpoints
+
+* AST: `/ast?sql=sql&read=dialect;`
+* Transpile (Convert from one dialect to another): `/transpile?sql=sql&read=dialect&write=dialect;`
+* CTE table lineage: `/cte-tables?sql=sql&read=dialect;`
+
+## Dialects
+
+https://sqlglot.com/sqlglot/dialects/dialect.html#Dialect
