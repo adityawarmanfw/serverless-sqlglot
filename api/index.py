@@ -96,7 +96,7 @@ app = Flask(__name__)
 
 
 @app.route('/ast')
-def parse_to_json():
+def parse_to_json(sql):
 
     # Retrieve the 'sql' query parameter from the URL
     sql = request.args.to_dict().get('sql')
@@ -114,7 +114,7 @@ def parse_to_json():
         return jsonify(error=str(e)), 400
 
 @app.route('/cte-tables')
-def lineage_to_json():
+def lineage_to_json(sql):
     # Retrieve the 'sql' query parameter from the URL
     sql = request.args.to_dict().get('sql')
 
@@ -128,7 +128,7 @@ def lineage_to_json():
         return jsonify(error=str(e)), 400
     
 @app.route('/transpile')
-def transpile():
+def transpile(sql, read, write):
 
     # Retrieve the 'sql' query parameter from the URL
     sql = request.args.to_dict().get('sql')
@@ -141,7 +141,7 @@ def transpile():
         return jsonify(error='SQL query is missing'), 400
 
     try:
-        parsed_expressions = sqlglot.transpile(optimize(sql3).sql(), read=read, write=write)[0]
+        parsed_expressions = sqlglot.transpile(optimize(sql).sql(), read=read, write=write)[0]
         return jsonify(parsed_expressions)
     except Exception as e:
         return jsonify(error=str(e)), 400
