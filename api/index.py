@@ -96,7 +96,7 @@ app = Flask(__name__)
 
 
 @app.route('/ast')
-def parse_to_json(sql):
+def parse_to_json():
 
     # Retrieve the 'sql' query parameter from the URL
     sql = request.args.to_dict().get('sql')
@@ -114,7 +114,7 @@ def parse_to_json(sql):
         return jsonify(error=str(e)), 400
 
 @app.route('/cte-tables')
-def lineage_to_json(sql):
+def lineage_to_json():
     # Retrieve the 'sql' query parameter from the URL
     sql = request.args.to_dict().get('sql')
 
@@ -128,7 +128,7 @@ def lineage_to_json(sql):
         return jsonify(error=str(e)), 400
     
 @app.route('/transpile')
-def transpile(sql, read, write):
+def transpile():
 
     # Retrieve the 'sql' query parameter from the URL
     sql = request.args.to_dict().get('sql')
