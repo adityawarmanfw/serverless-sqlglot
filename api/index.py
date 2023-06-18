@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import json
 import sqlglot
 from sqlglot import exp
-from sqlglot.optimizer import optimize
 
 
 def table_ref(table):
@@ -141,7 +140,7 @@ def transpile():
         return jsonify(error='SQL query is missing'), 400
 
     try:
-        parsed_expressions = sqlglot.transpile(optimize(sql).sql(), read=read, write=write)[0]
+        parsed_expressions = sqlglot.transpile(sql, read=read, write=write)[0]
         return jsonify(parsed_expressions)
     except Exception as e:
         return jsonify(error=str(e)), 400
