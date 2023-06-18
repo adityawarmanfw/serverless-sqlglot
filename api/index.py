@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import sqlglot
 from sqlglot import exp
-from sqlglot.dialects.dialect import Dialect, DialectType
+from sqlglot.optimizer import optimize
 
 
 def table_ref(table):
