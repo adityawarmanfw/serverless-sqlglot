@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import sqlglot
 from sqlglot import exp
+from sqlglot.optimizer.qualify_columns import qualify_columns
 
 
 def table_ref(table):
