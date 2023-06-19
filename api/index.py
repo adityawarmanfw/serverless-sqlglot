@@ -101,7 +101,7 @@ def get_lineage(sql):
                     base_tables.append({
                         "table": parent,
                         "kind": "SOURCE",
-                        "cols": [{"name": "STAR", "parents": [], "sql": "*"}],
+                        "cols": [{"col": "STAR", "parents": [], "sql": "*"}],
                         "table_parents": [],
                         "table_sql": f"SELECT * FROM {parent}",
                     })
