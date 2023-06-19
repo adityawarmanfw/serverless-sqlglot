@@ -93,7 +93,7 @@ def get_lineage(sql):
 
     base_tables = []
     for entry in final_model:
-        parents = entry.get("parents", [])
+        parents = entry.get("table_parents", [])
 
         for parent in parents:
             if not any(item['table'] == parent for item in final_model):
