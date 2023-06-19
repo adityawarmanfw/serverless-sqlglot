@@ -6,7 +6,7 @@ Parse SQL using SQLGLot.
 
 * AST: `/ast?sql=sql&read=dialect;`
 * Transpile (Convert from one dialect to another): `/transpile?sql=sql&read=dialect&write=dialect;`
-* CTE table lineage: `/lineage?sql=sql&read=dialect;`
+* CTE lineage: `/lineage?sql=sql&read=dialect;`
 
 ## Dialects
 
